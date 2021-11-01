@@ -1,0 +1,481 @@
+/*
+オープンボタン
+*/
+
+#open-navi {
+  position: fixed;
+  background: #333;
+  cursor: pointer;
+  top: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 5px auto 0 auto;
+  z-index: 99999;
+  box-shadow: 3px 3px 5px #555;
+
+  
+
+  & .open-navi-area {
+    transition: all .6s;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+
+    & span {
+      transition: all .4s;
+      position: absolute;
+      left: 13px;
+      height: 3px;
+      background: #fff;
+      width: 50%;
+
+      &:nth-of-type(1) {
+        top: 12px;
+      }
+
+      &:nth-of-type(2) {
+        top: 23px;
+      }
+
+      &:nth-of-type(3) {
+        top: 34px;
+      }
+    }
+  }
+}
+
+/*
+.activeクラス付与後
+*/
+ 
+#open-navi.active .open-navi-area {
+  transform: rotate(360deg);
+}
+
+#open-navi.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+#open-navi.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+#open-navi.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/*
+click時のメニュー
+*/
+
+#g-navi.panel .g-navi-list {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#g-navi ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.g-navi-list ul {
+  text-align: center;
+
+  & li a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+}
+
+#g-navi {
+  position: fixed;
+  z-index: 9999;
+  top: -120%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #333;
+  transition: all .6s;
+
+  &.panel {
+    top: 0;
+  }
+}
+
+/*
+画像のスライド
+*/
+
+.slider {
+  width: 94%;
+  margin: 0 auto;
+  
+  & img {
+    border-radius: 30px;
+    width: 400px;
+    height: auto;
+    box-shadow: 4px 4px 6px #555;
+
+  }
+
+  & .slick-slide {
+    transform: scale(0.8);
+    transition: all .5s;
+    opacity: 0.7;
+  }
+
+  & .slick-slide .slick-center {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slick-dots {
+  text-align: center;
+  margin: 5px 0 50px 0;
+
+  & li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  & button {
+    color: transparent;
+    outline: none;
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 50%;
+    background: #ccc;
+  }
+}
+
+.slick-dots .slick-active button {
+  background: #333;
+}
+
+
+/*
+グラデ文字
+*/
+
+.section-list {
+  position: relative;
+}
+
+.section2-list {
+  position: relative;
+}
+
+.section3-list {
+  position: relative;
+}
+
+.gradi {
+  display: block;
+  font-size: 7rem;
+  color: #fff;
+  width: 50%;
+  border-radius: 30px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  text-shadow: 0 7px 7px #333;
+  z-index: -1;
+}
+
+/*
+画像がフワッと出現
+*/
+.box {
+  opacity: 0;
+}
+
+.fadeUp {
+  animation: fadeUp 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+Y軸に回転
+*/
+
+.rotateY {
+  animation: rotateY 1s forwards;
+}
+
+@keyframes rotateY {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+/*
+テキストナビ
+*/
+ .textnavi li a {
+   position: relative;
+   
+
+   &::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 10%;
+     width: 80%;
+     height: 2px;
+     transform: scale(0, 1);
+     transform-origin: center top;
+     background: #eee;
+     transition: all .3s;
+   }
+ }
+
+ 
+ .textnavi li a:hover {
+   color: #eee;
+ }
+
+ 
+ .textnavi li a:hover::after {
+   transform: scale(1, 1);
+ }
+
+ .textnavi2 a {
+   position: relative;
+   
+
+   &::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0%;
+     width: 100%;
+     height: 2px;
+     transform: scale(0, 1);
+     transform-origin: center top;
+     background: #333;
+     transition: all .3s;
+   }
+ }
+
+ 
+ .textnavi2 a:hover {
+   color: #333;
+ }
+
+ 
+ .textnavi2 a:hover::after {
+   transform: scale(1, 1);
+ }
+
+ /*
+ 光るテキスト
+ */
+
+ .shine {
+   position: relative;
+   outline: none;
+   overflow: hidden;
+   box-shadow: 3px 3px 5px #555;
+
+   &::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: -75%;
+     width: 50%;
+     height: 100%;
+     background: linear-gradient(to right, rgba(255,255,255,0)0%, rgba(255,255,255,.3)100%);
+     transform: skewX(-25deg);
+   }
+
+   &:hover::before {
+     animation: shine 0.7s;
+   }
+ }
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/*
+背景の動き
+*/
+#particles-js {
+  position: fixed;
+  top: 0;
+  z-index: -10;
+  width: 80%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.3;
+}
+
+#wrapper {
+  position: relative;
+  height: 100%;
+}
+
+/*
+スクロールダウン
+*/
+.scrolldown {
+  position: absolute;
+  top: 4%;
+  right: 9%;
+
+  & span {
+    position: absolute;
+    top: 15px;
+    right: -15px;
+    color: #333;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    writing-mode: vertical-rl;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    animation: circlemove 1.6s ease-in-out infinite,
+               circlemovehide 1.6s ease-in-out infinite,;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 9px;
+    width: 2px;
+    height: 60px;
+    background-color: #333;
+  }
+}
+
+@keyframes circlemove {
+  0% {
+    top: -5px;
+  }
+  100% {
+    top: 45px;
+  }
+}
+
+@keyframes circlemovehide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*
+ページトップ
+*/
+
+#page-top a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  box-shadow: 3px 3px 5px #555;
+
+  &:hover {
+    background: #777;
+  }
+}
+
+#page-top {
+  position: fixed;
+  right: 70px;
+  bottom: 30px;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(100px);
+
+  &.UpMove {
+    animation: UpAnime 0.5s forwards;
+  }
+
+  &.DownMove {
+    animation: DownAnime 0.5s forwards;
+  }
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes DownAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
